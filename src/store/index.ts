@@ -12,7 +12,7 @@ const persistanceLocalStorageMiddleware: Middleware =
 	};
 
 const syncWithDatabase: Middleware = (store) => (next) => (action) => {
-	const { type, payload } = action;
+	const { type, payload } = action as {type: string; payload: string};
 	const previousState = store.getState();
 	next(action);
 
